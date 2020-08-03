@@ -1,0 +1,35 @@
+{
+  "name": "altran-back-end-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "test": "jest --forceExit --coverage --verbose",
+    "watch-ts": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olivaresvjuanp/altran-back-end-test.git"
+  },
+  "author": "Juan Pablo Olivares Valenzuela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olivaresvjuanp/altran-back-end-test/issues"
+  },
+  "homepage": "https://github.com/olivaresvjuanp/altran-back-end-test#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "mongoose": "^5.9.27"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.7",
+    "@types/express": "^4.17.7",
+    "@types/mongoose": "^5.7.34",
+    "jest": "^26.2.2",
+    "typescript": "^3.9.7"
+  }
+}
