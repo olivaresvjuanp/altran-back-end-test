@@ -13,7 +13,7 @@ Como dije antes, la prueba no está como yo quiero que esté, por lo que probarl
 
 En cualquier directorio, abrir el terminal y correr `git clone https://github.com/olivaresvjuanp/altran-back-end-test.git`, luego, dentro de la carpeta `altran-back-end-test` ir al directorio `/src`, copiar el archivo `config-example.json` y pegarlo con el nombre `config.json`. Dentro de este archivo JSON pegar lo siguiente en `mongo.uri`: `mongodb://localhost:27017/altran-back-end-test`.
 
-Una vez hecho todo esto, en el directorio principal, correr: `yarn` (con esto se instalarán las dependencias), luego de que termine, correr `yarn start`.
+Una vez hecho todo esto, en el directorio principal, correr: `yarn` (con esto se instalarán las dependencias), luego de que termine, correr `yarn watch-ts`, y en paralelo `yarn start`.
 
 Para probar el resultado de esta prueba es necesario hacer todo lo que dice aquí: https://github.com/olivaresvjuanp/altran-front-end-test#altran-front-end-test.
 
