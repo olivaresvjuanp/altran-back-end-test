@@ -7,6 +7,12 @@ La razón de haber tardado más de lo previsto se debe a que he tenido muchas pr
 
 En caso de que os parezca bien el resultado, os puedo decir que continuaré mejorando esta prueba y agregando más tests (me falta agregar un test de integración).
 
+### Requisitos
+
+- Node (yo uso la versión 14.7.0).
+- MongoDB Community Server (corriendo).
+- Yarn (npm i -g yarn).
+
 ### Instrucciones para probar la aplicación
 
 Como dije antes, la prueba no está como yo quiero que esté, por lo que probarla será más tedioso de lo que sería si estuviera completa, pero trataré de explicar lo mejor posible.
