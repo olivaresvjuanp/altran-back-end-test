@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import http from 'http';
 import axios, { AxiosError } from 'axios';
+import _ from 'lodash';
 
 import config from './config.json';
 import { Gnome } from './models/Gnome';
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // For parsing application/x
 app.use('/api/gnomes', apiRouter.gnomes); // API routes.
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Test');
 });
 
 mongoose.connect(config.mongo.uri, { // We have to connect the DB before starting the server.
@@ -42,6 +43,16 @@ mongoose.connect(config.mongo.uri, { // We have to connect the DB before startin
         if (count === 0) {
           axios.get('https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json')
             .then(response => {
+              const gnomes = response.data.Brastlewark.map(gnome => {
+                gnome.thumbnail = `https://altran.s3.eu-west-3.amazonaws.com/${Math.floor(Math.random() * 8) + 1}.jpg`;
+                return gnome;
+              });
+
+              Gnome.insertMany(gnomes)
+                .then(() => { startServer(); })
+                .catch(error => {
+                  throw error;
+                })
             })
             .catch((error: AxiosError) => {
               throw error;

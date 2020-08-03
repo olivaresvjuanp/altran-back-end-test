@@ -11,7 +11,7 @@ const gnomeSchema = new Schema({
     type: [String],
     required: true
   },
-  hairColor: {
+  hair_color: {
     type: String,
     required: true
   },
@@ -44,7 +44,7 @@ const gnomeSchema = new Schema({
 export interface GnomeDocument extends mongoose.Document {
   age: number;
   friends: string[];
-  hairColor: string;
+  hair_color: string;
   height: number;
   id: number;
   name: string;

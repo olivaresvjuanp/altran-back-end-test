@@ -7,6 +7,7 @@ import {
   validationResult,
   checkSchema
 } from 'express-validator';
+import _ from 'lodash';
 
 import { Gnome } from '../../models/Gnome';
 
@@ -44,7 +45,13 @@ router.get('/get-gnomes/:page', checkSchema({
     .then(gnomes => {
       res.json({
         payload: {
-          gnomes
+          gnomes: _.map(gnomes, gnome => {
+            return {
+              id: gnome.id,
+              name: gnome.name,
+              thumbnail: gnome.thumbnail
+            };
+          })
         }
       });
     })
@@ -122,7 +129,7 @@ router.post('/', checkSchema({
     isArray: true,
     isString: true
   },
-  hairColor: {
+  hair_color: {
     in: 'body',
     exists: true,
     isString: true // choose
@@ -200,7 +207,7 @@ router.post('/', checkSchema({
   const {
     age,
     friends,
-    hairColor,
+    hair_color,
     height,
     id,
     name,
@@ -212,7 +219,7 @@ router.post('/', checkSchema({
   new Gnome({
     age,
     friends,
-    hairColor,
+    hair_color,
     height,
     id,
     name,
@@ -283,7 +290,7 @@ router.patch('/', checkSchema({
     isArray: true,
     isString: true
   },
-  hairColor: {
+  hair_color: {
     in: 'body',
     isString: true // choose
   },
@@ -346,7 +353,7 @@ router.patch('/', checkSchema({
   const {
     age,
     friends,
-    hairColor,
+    hair_color,
     height,
     id,
     name,
@@ -364,8 +371,8 @@ router.patch('/', checkSchema({
         if (friends)
           gnome.friends = friends;
 
-        if (hairColor)
-          gnome.hairColor = hairColor;
+        if (hair_color)
+          gnome.hair_color = hair_color;
 
         if (height)
           gnome.height = height;
